@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import homeData from '../../data/home.json';
+import projectsData from '../../data/projects.json';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { t } from '../../i18n/utils';
+import type { HomeData, ProjectsData } from '../../types/content';
+
+const lang = 'en';
+const home = homeData as HomeData;
+const { projects } = projectsData as ProjectsData;
+const featured = projects.filter((p) => p.featured).sort((a, b) => a.order - b.order);
+---
+
+<BaseLayout title="Home" lang={lang}>
+  <section class="hero">
+    <div class="hero__image-wrap">
+      <img src={home.hero.image} alt={t(home.hero.alt, lang)} class="hero__image" />
+    </div>
+    <h1 class="hero__statement heading-xl">
+      {t(home.hero.statement, lang)}
+    </h1>
+  </section>
+
+  <section class="featured container">
+    <div class="featured__grid">
+      {featured.map((project) => (
+        <ProjectCard project={project} lang={lang} />
+      ))}
+    </div>
+  </section>
+
+  <section class="awards container">
+    <h2 class="awards__heading heading-sm">{t(home.recentAwards.heading, lang)}</h2>
+    <div class="awards__list">
+      {home.recentAwards.items.map((award) => (
+        <div class="awards__item">
+          <span class="awards__title">{t(award.title, lang)}</span>
+          <span class="awards__year">{award.year}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-top: var(--header-height);
+  }
+
+  .hero__image-wrap {
+    max-width: 900px;
+    margin: var(--spacing-md) auto;
+    padding: 0 var(--spacing-md);
+  }
+
+  .hero__image {
+    width: 100%;
+    height: auto;
+  }
+
+  .hero__statement {
+    max-width: var(--max-width);
+    margin: var(--spacing-lg) auto;
+    padding: 0 var(--spacing-md);
+  }
+
+  .featured {
+    margin-top: var(--spacing-xl);
+  }
+
+  .featured__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  @media (max-width: 768px) {
+    .featured__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .awards {
+    margin-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+  }
+
+  .awards__heading {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .awards__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .awards__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--spacing-sm);
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .awards__title {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-black);
+    text-transform: uppercase;
+  }
+
+  .awards__year {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    flex-shrink: 0;
+  }
+</style>

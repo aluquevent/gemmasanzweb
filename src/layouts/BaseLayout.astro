@@ -1,0 +1,45 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import type { Lang } from '../types/content';
+
+interface Props {
+  title: string;
+  description?: string;
+  lang?: Lang;
+}
+
+const { title, description = 'Gemma Sanz — Humanist specializing in African culture', lang = 'es' } = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const alternateLang = lang === 'es' ? 'en' : 'es';
+
+import { getAlternateUrl } from '../i18n/utils';
+const alternateUrl = new URL(getAlternateUrl(Astro.url.pathname, alternateLang), Astro.site);
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | Gemma Sanz</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalUrl.href} />
+    <link rel="alternate" hreflang={lang} href={canonicalUrl.href} />
+    <link rel="alternate" hreflang={alternateLang} href={alternateUrl.href} />
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+  </head>
+  <body>
+    <Header lang={lang} />
+    <main>
+      <slot />
+    </main>
+    <Footer lang={lang} />
+
+    <style is:global>
+      @import '../styles/global.css';
+    </style>
+  </body>
+</html>

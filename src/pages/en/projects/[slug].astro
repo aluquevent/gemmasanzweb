@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import projectsData from '../../../data/projects.json';
+import { t } from '../../../i18n/utils';
+import type { ProjectsData, Project } from '../../../types/content';
+
+export function getStaticPaths() {
+  const { projects } = projectsData as ProjectsData;
+  return projects.map((project) => ({
+    params: { slug: project.slug.en },
+    props: { project },
+  }));
+}
+
+interface Props {
+  project: Project;
+}
+
+const lang = 'en';
+const { project } = Astro.props;
+---
+
+<BaseLayout title={t(project.title, lang)} description={t(project.summary, lang)} lang={lang}>
+  <article class="project-detail">
+    <div class="project-detail__header container">
+      <a href="/en/projects" class="project-detail__back">
+        &larr; Back to projects
+      </a>
+      <h1 class="heading-lg">{t(project.title, lang)}</h1>
+      <p class="project-detail__subtitle">{t(project.subtitle, lang)}</p>
+      <div class="project-detail__meta">
+        <span>{t(project.category, lang)}</span>
+        <span>{project.year}</span>
+      </div>
+    </div>
+
+    <div class="project-detail__hero">
+      <img src={project.coverImage} alt={t(project.title, lang)} />
+    </div>
+
+    <div class="project-detail__body container">
+      <p class="project-detail__description">{t(project.description, lang)}</p>
+
+      {project.tags.length > 0 && (
+        <div class="project-detail__tags">
+          {project.tags.map((tag) => (
+            <span class="project-detail__tag">{t(tag, lang)}</span>
+          ))}
+        </div>
+      )}
+    </div>
+
+    <div class="project-detail__gallery container">
+      {project.images.map((image) => (
+        <div class="project-detail__image">
+          <img src={image.src} alt={t(image.alt, lang)} loading="lazy" />
+        </div>
+      ))}
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .project-detail {
+    padding-top: calc(var(--header-height) + var(--spacing-md));
+  }
+
+  .project-detail__back {
+    display: inline-block;
+    font-size: var(--text-sm);
+    margin-bottom: var(--spacing-md);
+    transition: opacity 0.2s;
+  }
+
+  .project-detail__back:hover {
+    opacity: 0.5;
+  }
+
+  .project-detail__header {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .project-detail__subtitle {
+    font-size: var(--text-xl);
+    color: var(--color-text-secondary);
+    margin-top: var(--spacing-xs);
+  }
+
+  .project-detail__meta {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+  }
+
+  .project-detail__hero {
+    max-width: 1000px;
+    margin: 0 auto var(--spacing-xl);
+    padding: 0 var(--spacing-md);
+  }
+
+  .project-detail__hero img {
+    width: 100%;
+    height: auto;
+  }
+
+  .project-detail__body {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .project-detail__description {
+    font-size: var(--text-lg);
+    line-height: 1.7;
+    max-width: 720px;
+  }
+
+  .project-detail__tags {
+    display: flex;
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-md);
+    flex-wrap: wrap;
+  }
+
+  .project-detail__tag {
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-black);
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid var(--color-border);
+  }
+
+  .project-detail__gallery {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+
+  .project-detail__image img {
+    width: 100%;
+    height: auto;
+  }
+</style>

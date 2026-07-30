@@ -1,0 +1,195 @@
+---
+import type { Lang } from '../types/content';
+import siteData from '../data/site.json';
+import { t, getAlternateUrl } from '../i18n/utils';
+import type { SiteData } from '../types/content';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const site = siteData as SiteData;
+const currentPath = Astro.url.pathname;
+const alternateLang = lang === 'es' ? 'en' : 'es';
+const alternateUrl = getAlternateUrl(currentPath, alternateLang);
+---
+
+<header class="header">
+  <div class="header__inner">
+    <a href={lang === 'en' ? '/en' : '/'} class="header__logo">
+      <span class="header__name">{site.siteName}</span>
+      <span class="header__separator" aria-hidden="true"></span>
+    </a>
+
+    <button
+      class="header__menu-btn"
+      aria-label={lang === 'es' ? 'Abrir menú' : 'Open menu'}
+      aria-expanded="false"
+      data-menu-toggle
+    >
+      <span class="header__menu-icon">
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+  </div>
+
+  <nav class="nav-overlay" data-nav-overlay aria-hidden="true">
+    <div class="nav-overlay__content">
+      <ul class="nav-overlay__list">
+        {site.navigation.map((item) => (
+          <li>
+            <a href={t(item.href, lang)} class="nav-overlay__link">
+              {t(item.label, lang)}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <a href={alternateUrl} class="nav-overlay__lang">
+        {alternateLang.toUpperCase()}
+      </a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: var(--color-bg);
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+    padding: 0 var(--spacing-md);
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .header__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .header__name {
+    font-weight: var(--font-weight-black);
+    font-size: var(--text-lg);
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+  }
+
+  .header__separator {
+    width: 1px;
+    height: 1.5rem;
+    background: var(--color-text);
+  }
+
+  .header__menu-btn {
+    position: relative;
+    z-index: 110;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header__menu-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 1.5rem;
+  }
+
+  .header__menu-icon span {
+    display: block;
+    height: 2px;
+    background: var(--color-text);
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  .header__menu-btn[aria-expanded="true"] .header__menu-icon span:first-child {
+    transform: translateY(4px) rotate(45deg);
+  }
+
+  .header__menu-btn[aria-expanded="true"] .header__menu-icon span:last-child {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+
+  .nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 99;
+  }
+
+  .nav-overlay.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-overlay__content {
+    text-align: center;
+  }
+
+  .nav-overlay__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .nav-overlay__link {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-weight-black);
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    transition: opacity 0.2s;
+  }
+
+  .nav-overlay__link:hover {
+    opacity: 0.5;
+  }
+
+  .nav-overlay__lang {
+    display: inline-block;
+    margin-top: var(--spacing-lg);
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-black);
+    letter-spacing: 0.1em;
+    padding: 0.5rem 1.5rem;
+    border: 2px solid var(--color-text);
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .nav-overlay__lang:hover {
+    background: var(--color-text);
+    color: var(--color-bg);
+  }
+</style>
+
+<script>
+  const btn = document.querySelector('[data-menu-toggle]') as HTMLButtonElement;
+  const overlay = document.querySelector('[data-nav-overlay]') as HTMLElement;
+
+  btn?.addEventListener('click', () => {
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    overlay.classList.toggle('is-open');
+    overlay.setAttribute('aria-hidden', String(isOpen));
+    document.body.style.overflow = isOpen ? '' : 'hidden';
+  });
+</script>

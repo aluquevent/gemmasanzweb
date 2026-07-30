@@ -1,0 +1,138 @@
+---
+import type { Lang, CVSection } from '../types/content';
+import { t } from '../i18n/utils';
+
+interface Props {
+  section: CVSection;
+  lang: Lang;
+  defaultOpen?: boolean;
+}
+
+const { section, lang, defaultOpen = false } = Astro.props;
+---
+
+<details class="accordion" open={defaultOpen || undefined}>
+  <summary class="accordion__header">
+    <span class="accordion__title">{t(section.title, lang)}</span>
+    <span class="accordion__icon" aria-hidden="true">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+  </summary>
+  <div class="accordion__content">
+    {section.items.length > 0 ? (
+      <div class="accordion__items">
+        {section.items.map((item) => (
+          <div class="accordion__item">
+            <span class="accordion__year">{item.year}</span>
+            <div class="accordion__details">
+              <span class="accordion__item-title">{t(item.title, lang)}</span>
+              {t(item.organization, lang) && (
+                <span class="accordion__org">{t(item.organization, lang)}</span>
+              )}
+              {t(item.location, lang) && (
+                <span class="accordion__location">{t(item.location, lang)}</span>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    ) : (
+      <p class="accordion__empty">{lang === 'es' ? 'Próximamente' : 'Coming soon'}</p>
+    )}
+  </div>
+</details>
+
+<style>
+  .accordion {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .accordion__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-sm) 0;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+
+  .accordion__header::-webkit-details-marker {
+    display: none;
+  }
+
+  .accordion__header::marker {
+    display: none;
+    content: '';
+  }
+
+  .accordion__title {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-black);
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+  }
+
+  .accordion__icon {
+    transition: transform 0.3s;
+  }
+
+  .accordion[open] .accordion__icon {
+    transform: rotate(180deg);
+  }
+
+  .accordion__content {
+    padding-bottom: var(--spacing-md);
+  }
+
+  .accordion__items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .accordion__item {
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    gap: var(--spacing-sm);
+    font-size: var(--text-base);
+  }
+
+  @media (max-width: 768px) {
+    .accordion__item {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+    }
+  }
+
+  .accordion__year {
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+  }
+
+  .accordion__details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .accordion__item-title {
+    font-weight: var(--font-weight-regular);
+  }
+
+  .accordion__org {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .accordion__location {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .accordion__empty {
+    color: var(--color-text-secondary);
+    font-style: italic;
+  }
+</style>

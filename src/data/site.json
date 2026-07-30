@@ -1,0 +1,23 @@
+{
+  "siteName": "Gemma Sanz",
+  "navigation": [
+    {
+      "label": { "es": "Proyectos", "en": "Projects" },
+      "href": { "es": "/proyectos", "en": "/en/projects" }
+    },
+    {
+      "label": { "es": "Sobre Mí", "en": "About" },
+      "href": { "es": "/sobre-mi", "en": "/en/about" }
+    },
+    {
+      "label": { "es": "C.V.", "en": "C.V." },
+      "href": { "es": "/cv", "en": "/en/cv" }
+    }
+  ],
+  "footer": {
+    "copyright": {
+      "es": "Todos los derechos reservados",
+      "en": "All rights reserved"
+    }
+  }
+}

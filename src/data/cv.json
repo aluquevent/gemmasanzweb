@@ -1,0 +1,170 @@
+{
+  "downloadLabel": { "es": "DESCARGAR C.V.", "en": "DOWNLOAD C.V." },
+  "downloadUrl": "/files/gemma-sanz-cv.pdf",
+  "sections": [
+    {
+      "id": "projects",
+      "title": { "es": "PROYECTOS", "en": "PROJECTS" },
+      "order": 1,
+      "items": [
+        {
+          "year": "2025",
+          "title": {
+            "es": "Narrativas Orales del África Occidental",
+            "en": "Oral Narratives of West Africa"
+          },
+          "organization": {
+            "es": "Instituto de Estudios Africanos",
+            "en": "Institute of African Studies"
+          },
+          "location": { "es": "Dakar, Senegal", "en": "Dakar, Senegal" }
+        },
+        {
+          "year": "2024",
+          "title": {
+            "es": "Diáspora Textil",
+            "en": "Textile Diaspora"
+          },
+          "organization": {
+            "es": "Centro Cultural Africano",
+            "en": "African Cultural Center"
+          },
+          "location": { "es": "Madrid, España", "en": "Madrid, Spain" }
+        },
+        {
+          "year": "2023",
+          "title": {
+            "es": "Revisando los Archivos Coloniales",
+            "en": "Revisiting Colonial Archives"
+          },
+          "organization": {
+            "es": "Universidad Complutense",
+            "en": "Complutense University"
+          },
+          "location": { "es": "Madrid, España", "en": "Madrid, Spain" }
+        }
+      ]
+    },
+    {
+      "id": "publications",
+      "title": { "es": "PUBLICACIONES", "en": "PUBLICATIONS" },
+      "order": 2,
+      "items": [
+        {
+          "year": "2025",
+          "title": {
+            "es": "\"Voces que no se escriben: la oralidad como archivo vivo\"",
+            "en": "\"Voices Unwritten: Orality as a Living Archive\""
+          },
+          "organization": {
+            "es": "Revista de Estudios Africanos",
+            "en": "Journal of African Studies"
+          },
+          "location": { "es": "", "en": "" }
+        },
+        {
+          "year": "2023",
+          "title": {
+            "es": "\"Tejidos de resistencia: el textil como lenguaje cultural\"",
+            "en": "\"Fabrics of Resistance: Textiles as Cultural Language\""
+          },
+          "organization": {
+            "es": "Editorial Cátedra",
+            "en": "Cátedra Publishing"
+          },
+          "location": { "es": "", "en": "" }
+        }
+      ]
+    },
+    {
+      "id": "education",
+      "title": { "es": "FORMACIÓN", "en": "EDUCATION" },
+      "order": 3,
+      "items": [
+        {
+          "year": "2020",
+          "title": {
+            "es": "Máster en Estudios Africanos",
+            "en": "Master's in African Studies"
+          },
+          "organization": {
+            "es": "Universidad Autónoma de Madrid",
+            "en": "Autonomous University of Madrid"
+          },
+          "location": { "es": "Madrid, España", "en": "Madrid, Spain" }
+        },
+        {
+          "year": "2018",
+          "title": {
+            "es": "Grado en Humanidades",
+            "en": "Bachelor's in Humanities"
+          },
+          "organization": {
+            "es": "Universidad Complutense de Madrid",
+            "en": "Complutense University of Madrid"
+          },
+          "location": { "es": "Madrid, España", "en": "Madrid, Spain" }
+        }
+      ]
+    },
+    {
+      "id": "experience",
+      "title": { "es": "EXPERIENCIA", "en": "EXPERIENCE" },
+      "order": 4,
+      "items": [
+        {
+          "year": "2022–",
+          "title": {
+            "es": "Investigadora independiente en cultura africana",
+            "en": "Independent researcher in African culture"
+          },
+          "organization": { "es": "", "en": "" },
+          "location": { "es": "Madrid, España", "en": "Madrid, Spain" }
+        },
+        {
+          "year": "2020–2022",
+          "title": {
+            "es": "Asistente de investigación",
+            "en": "Research assistant"
+          },
+          "organization": {
+            "es": "Centro de Estudios de África Subsahariana",
+            "en": "Center for Sub-Saharan African Studies"
+          },
+          "location": { "es": "Madrid, España", "en": "Madrid, Spain" }
+        }
+      ]
+    },
+    {
+      "id": "awards",
+      "title": { "es": "PREMIOS", "en": "AWARDS" },
+      "order": 5,
+      "items": [
+        {
+          "year": "2026",
+          "title": {
+            "es": "Beca de Investigación Cultural Africana",
+            "en": "African Cultural Research Grant"
+          },
+          "organization": {
+            "es": "Fundación para la Cultura Africana",
+            "en": "Foundation for African Culture"
+          },
+          "location": { "es": "", "en": "" }
+        },
+        {
+          "year": "2025",
+          "title": {
+            "es": "Premio a la Difusión Cultural",
+            "en": "Cultural Outreach Award"
+          },
+          "organization": {
+            "es": "Casa África",
+            "en": "Casa África"
+          },
+          "location": { "es": "Las Palmas, España", "en": "Las Palmas, Spain" }
+        }
+      ]
+    }
+  ]
+}

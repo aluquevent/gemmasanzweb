@@ -1,0 +1,74 @@
+{
+  "projects": [
+    {
+      "id": "demolicion-constructo-picassiano",
+      "slug": { "es": "demolicion-constructo-picassiano", "en": "demolition-picassian-construct" },
+      "title": {
+        "es": "Demolición del constructo picassiano",
+        "en": "Demolition of the Picassian Construct"
+      },
+      "subtitle": {
+        "es": "Una revisión de la Colección del Museo Picasso en clave de género",
+        "en": "A gender-based review of the Picasso Museum Collection"
+      },
+      "description": {
+        "es": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      },
+      "summary": {
+        "es": "Revisión de la Colección del Museo Picasso en clave de género",
+        "en": "Gender-based review of the Picasso Museum Collection"
+      },
+      "year": "2026",
+      "category": { "es": "Investigación", "en": "Research" },
+      "tags": [
+        { "es": "Género", "en": "Gender" },
+        { "es": "Arte", "en": "Art" }
+      ],
+      "coverImage": "/images/placeholders/project-thumb.svg",
+      "images": [
+        {
+          "src": "/images/placeholders/project-1.svg",
+          "alt": { "es": "Demolición del constructo picassiano", "en": "Demolition of the Picassian Construct" }
+        }
+      ],
+      "featured": true,
+      "order": 1
+    },
+    {
+      "id": "oyo-kongo-na-biso",
+      "slug": { "es": "oyo-kongo-na-biso", "en": "oyo-kongo-na-biso" },
+      "title": {
+        "es": "Oyo Kongo Na Biso",
+        "en": "Oyo Kongo Na Biso"
+      },
+      "subtitle": {
+        "es": "Este es nuestro Congo — Trabajo Final de Grado",
+        "en": "This is our Congo — Final Degree Project"
+      },
+      "description": {
+        "es": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      },
+      "summary": {
+        "es": "Trabajo Final de Grado — Este es nuestro Congo",
+        "en": "Final Degree Project — This is our Congo"
+      },
+      "year": "2026",
+      "category": { "es": "Trabajo Final de Grado", "en": "Final Degree Project" },
+      "tags": [
+        { "es": "TFG", "en": "Thesis" },
+        { "es": "Congo", "en": "Congo" }
+      ],
+      "coverImage": "/images/placeholders/project-thumb.svg",
+      "images": [
+        {
+          "src": "/images/placeholders/project-1.svg",
+          "alt": { "es": "Oyo Kongo Na Biso", "en": "Oyo Kongo Na Biso" }
+        }
+      ],
+      "featured": true,
+      "order": 2
+    }
+  ]
+}

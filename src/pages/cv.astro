@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import cvData from '../data/cv.json';
+import Accordion from '../components/Accordion.astro';
+import { t } from '../i18n/utils';
+import type { CVData } from '../types/content';
+
+const lang = 'es';
+const cv = cvData as CVData;
+const sections = cv.sections.sort((a, b) => a.order - b.order);
+---
+
+<BaseLayout title="C.V." lang={lang}>
+  <section class="cv">
+    <div class="cv__header container">
+      <h1 class="cv__title">C.V.</h1>
+      <a href={cv.downloadUrl} class="cv__download" download>
+        {t(cv.downloadLabel, lang)}
+      </a>
+    </div>
+
+    <div class="cv__sections container">
+      {sections.map((section, i) => (
+        <Accordion section={section} lang={lang} defaultOpen={i === 0} />
+      ))}
+      <div class="cv__bottom-border"></div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .cv {
+    padding-top: calc(var(--header-height) + var(--spacing-lg));
+  }
+
+  .cv__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .cv__title {
+    font-size: var(--text-4xl);
+    font-weight: var(--font-weight-black);
+    line-height: 1;
+  }
+
+  .cv__download {
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-black);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.5rem 1.25rem;
+    border: 2px solid var(--color-text);
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .cv__download:hover {
+    background: var(--color-text);
+    color: var(--color-bg);
+  }
+
+  .cv__sections {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cv__bottom-border {
+    border-top: 1px solid var(--color-border);
+  }
+</style>

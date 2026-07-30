@@ -1,0 +1,32 @@
+{
+  "heading": { "es": "SOBRE MÍ", "en": "ABOUT ME" },
+  "statement": {
+    "es": "Busco nuevas vías para abordar aquello que aún no está resuelto o que, simplemente, todavía no existe, fomentando el encuentro entre territorios, lenguas y culturas.",
+    "en": "I seek new ways to approach what remains unresolved or what simply does not yet exist, fostering encounters between territories, languages and cultures."
+  },
+  "bio": {
+    "es": [
+      "Comprometida con dar a conocer y cuestionar las estructuras de poder que han condicionado la representación de las culturas africanas. Mi trabajo parte de la investigación rigurosa para construir puentes entre las narrativas locales y el discurso académico internacional.",
+      "A través de proyectos de investigación, publicaciones y colaboraciones con comunidades e instituciones, busco contribuir a una comprensión más completa y justa de las culturas africanas y sus aportes a la humanidad."
+    ],
+    "en": [
+      "Committed to raising awareness and questioning the power structures that have shaped the representation of African cultures. My work is grounded in rigorous research to build bridges between local narratives and international academic discourse.",
+      "Through research projects, publications, and collaborations with communities and institutions, I seek to contribute to a more complete and just understanding of African cultures and their contributions to humanity."
+    ]
+  },
+  "portrait": {
+    "src": "/images/placeholders/portrait.svg",
+    "alt": {
+      "es": "Retrato de Gemma Sanz",
+      "en": "Portrait of Gemma Sanz"
+    }
+  },
+  "contact": {
+    "email": "hello@gemmasanz.com",
+    "location": { "es": "Madrid, España", "en": "Madrid, Spain" },
+    "social": [
+      { "platform": "Instagram", "url": "https://instagram.com/gemmaasanz" },
+      { "platform": "LinkedIn", "url": "https://linkedin.com/in/gemmasanz" }
+    ]
+  }
+}

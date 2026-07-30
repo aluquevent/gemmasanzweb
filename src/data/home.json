@@ -1,0 +1,42 @@
+{
+  "hero": {
+    "image": "/images/placeholders/hero.svg",
+    "alt": {
+      "es": "Imagen principal del portfolio de Gemma Sanz",
+      "en": "Gemma Sanz portfolio hero image"
+    },
+    "statement": {
+      "es": "HUMANISTA ESPECIALIZADA EN CULTURA AFRICANA Y SUS NARRATIVAS CONTEMPORÁNEAS.",
+      "en": "HUMANIST SPECIALIZING IN AFRICAN CULTURE AND ITS CONTEMPORARY NARRATIVES."
+    }
+  },
+  "recentAwards": {
+    "heading": {
+      "es": "RECONOCIMIENTOS RECIENTES",
+      "en": "RECENT AWARDS"
+    },
+    "items": [
+      {
+        "title": {
+          "es": "Beca de Investigación Cultural Africana",
+          "en": "African Cultural Research Grant"
+        },
+        "year": "2026"
+      },
+      {
+        "title": {
+          "es": "Premio a la Difusión Cultural",
+          "en": "Cultural Outreach Award"
+        },
+        "year": "2025"
+      },
+      {
+        "title": {
+          "es": "Selección Programa Internacional de Humanidades",
+          "en": "International Humanities Program Selection"
+        },
+        "year": "2024"
+      }
+    ]
+  }
+}

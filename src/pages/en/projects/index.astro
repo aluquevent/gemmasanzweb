@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import projectsData from '../../../data/projects.json';
+import ProjectCard from '../../../components/ProjectCard.astro';
+import type { ProjectsData } from '../../../types/content';
+
+const lang = 'en';
+const { projects } = projectsData as ProjectsData;
+const sorted = [...projects].sort((a, b) => a.order - b.order);
+---
+
+<BaseLayout title="Projects" lang={lang}>
+  <section class="projects">
+    <div class="projects__header container">
+      <h1 class="heading-lg">Projects</h1>
+    </div>
+
+    <div class="projects__grid container">
+      {sorted.map((project) => (
+        <ProjectCard project={project} lang={lang} />
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .projects {
+    padding-top: calc(var(--header-height) + var(--spacing-lg));
+  }
+
+  .projects__header {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .projects__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  @media (max-width: 768px) {
+    .projects__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
